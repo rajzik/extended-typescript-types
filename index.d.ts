@@ -1,3 +1,3 @@
 
 
-/// <reference path="globals.d.ts" />
+/// <reference path="global.d.ts" />
