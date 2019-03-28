@@ -4,8 +4,16 @@ Collection of generic types for TypeScript, complementing built-in mapped types 
 
 ## Installation
 
+1. Install package
+
 ```bash
 npm install --save-dev typescript-utility-types
+```
+
+2. Add reference to your `global.d.ts`
+
+```ts
+/// <reference types="typescript-utility-types"/>
 ```
 
 ## Typescript compatibility
