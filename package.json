@@ -1,6 +1,6 @@
 {
   "name": "typescript-utility-types",
-  "version": "0.0.1",
+  "version": "0.0.1-canary.0",
   "description": "Common typescript types that can be used in your project",
   "types": "index",
   "repository": {
