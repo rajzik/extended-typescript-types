@@ -1,0 +1,16 @@
+{
+  "name": "extended-typescript-types",
+  "version": "0.0.1",
+  "description": "Common typescript types that can be used in your project",
+  "types": "index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajzik/extended-typescript-types.git"
+  },
+  "author": "Jan Silhan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajzik/extended-typescript-types/issues"
+  },
+  "homepage": "https://github.com/rajzik/extended-typescript-types#readme"
+}
