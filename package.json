@@ -1,5 +1,5 @@
 {
-  "name": "extended-typescript-types",
+  "name": "typescript-utility-types",
   "version": "0.0.1",
   "description": "Common typescript types that can be used in your project",
   "types": "index",
@@ -12,5 +12,12 @@
   "bugs": {
     "url": "https://github.com/rajzik/extended-typescript-types/issues"
   },
-  "homepage": "https://github.com/rajzik/extended-typescript-types#readme"
+  "homepage": "https://github.com/rajzik/extended-typescript-types#readme",
+  "keywords": [
+    "Typescript",
+    "types",
+    "utility",
+    "static-typing",
+    "mapped-types"
+  ]
 }
