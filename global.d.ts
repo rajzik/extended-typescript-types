@@ -10,7 +10,7 @@
  * ```
  */
 declare interface Dictionary extends Object {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
@@ -85,3 +85,37 @@ declare type Subtract<T, K> = Pick<T, Exclude<keyof T, K>>;
 declare type Nullable<T> = T | null;
 
 
+/**
+ * `Optional` will make every field optional.
+ *
+ * Usage:
+ * ```ts
+ * interface type {
+ *  optional: string;
+ * }
+ *
+ * let test: Optional<type>;
+ * test = {};
+ * ```
+ */
+declare type Optional<T> = { [P in keyof T]?: T[P] };
+
+
+/**
+ * `Mandatory` will make every field mandatory.
+ *
+ * Usage:
+ * ```ts
+ * interface type {
+ *  required?: string;
+ * }
+ *
+ * let test: Mandatory<type>;
+ * test = {}; // Error
+ * test = {
+ *  required: 'Will work'
+ * };
+ * ```
+ */
+type RequiredInternal<T, K extends keyof T> = { [P in K]: T[P] };
+declare type Mandatory<T> = T & RequiredInternal<T, keyof T>;
