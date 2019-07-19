@@ -10,7 +10,7 @@
  * ```
  */
 declare interface Dictionary extends Object {
-  [key: string]: unknown;
+  [key: string]: any;
 }
 
 type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
