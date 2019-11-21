@@ -10,15 +10,21 @@ Collection of generic types for TypeScript, complementing built-in mapped types 
 npm install --save-dev typescript-utility-types
 ```
 
-2. Add reference to your `global.d.ts`
+2. Add reference to your `<type definition file>.d.ts`
 
 ```ts
 /// <reference types="typescript-utility-types"/>
 ```
 
+Or:
+
+```ts
+import 'typescript-utility-types';
+```
+
 ## Typescript compatibility
 
-- v3 - minimum TS v3.3.0
+- v3 - minimum TS v3.6.0
 
 ## Table of content
 

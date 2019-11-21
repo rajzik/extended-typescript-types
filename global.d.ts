@@ -1,4 +1,3 @@
-
 /**
  * `Dictionary` is variable object type.
  *
@@ -9,12 +8,11 @@
  * obj = { c: 'string', d: 'string' }; // Ok
  * ```
  */
-declare interface Dictionary extends Object {
-  [key: string]: any;
+declare interface Dictionary {
+  [key: string]: unknown;
 }
 
 type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
-
 
 /**
  * `XOR` will create exclusive set where you can set only one or other type
@@ -72,7 +70,6 @@ declare type Extend<T, U> = T & U;
  */
 declare type Subtract<T, K> = Pick<T, Exclude<keyof T, K>>;
 
-
 /**
  * `Nullable` will make possible to assign null to variable.
  *
@@ -83,7 +80,6 @@ declare type Subtract<T, K> = Pick<T, Exclude<keyof T, K>>;
  * ```
  */
 declare type Nullable<T> = T | null;
-
 
 /**
  * `Optional` will make every field optional.
@@ -99,7 +95,6 @@ declare type Nullable<T> = T | null;
  * ```
  */
 declare type Optional<T> = { [P in keyof T]?: T[P] };
-
 
 /**
  * `Mandatory` will make every field mandatory.
@@ -118,4 +113,5 @@ declare type Optional<T> = { [P in keyof T]?: T[P] };
  * ```
  */
 type RequiredInternal<T, K extends keyof T> = { [P in K]: T[P] };
+
 declare type Mandatory<T> = T & RequiredInternal<T, keyof T>;
