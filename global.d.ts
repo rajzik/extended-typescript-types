@@ -4,8 +4,8 @@
  * Usage:
  * ```ts
  * let obj: Dictionary;
- * obj = { a: 0, b: 0 }; // Ok
- * obj = { c: 'string', d: 'string' }; // Ok
+ * obj = { a: 0, b: 0 }; // Pass
+ * obj = { c: 'string', d: 'string' }; // Pass
  * ```
  */
 declare interface Dictionary {
@@ -22,8 +22,8 @@ type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
  * type exclusive = XOR<{ property: string }, { property2: number }>;
  *
  * let result: exclusive;
- * result = { property: 'test' }; // Ok
- * result = { property2: 1 }; // Ok
+ * result = { property: 'test' }; // Pass
+ * result = { property2: 1 }; // Pass
  * result = { property: 'test', property2: 2 }; // Error
  * ```
  */
@@ -37,8 +37,8 @@ declare type XOR<T, U> = (Without<T, U> & U) | (Without<U, T> & T);
  * type exclusive = OneOf<{ property: string }, { property2: number }>;
  *
  * let result: exclusive;
- * result = { property: 'test' }; // Ok
- * result = { property2: 1 }; // Ok
+ * result = { property: 'test' }; // Pass
+ * result = { property2: 1 }; // Pass
  * result = { property: 'test', property2: 2 }; // Error
  * ```
  */
@@ -101,17 +101,44 @@ declare type Optional<T> = { [P in keyof T]?: T[P] };
  *
  * Usage:
  * ```ts
- * interface type {
+ * interface requiredType {
  *  required?: string;
  * }
  *
- * let test: Mandatory<type>;
+ * let test: Mandatory<requiredType>;
  * test = {}; // Error
  * test = {
  *  required: 'Will work'
- * };
- * ```
+ * }; // Pass
  */
 type RequiredInternal<T, K extends keyof T> = { [P in K]: T[P] };
 
 declare type Mandatory<T> = T & RequiredInternal<T, keyof T>;
+
+/**
+ * `RecordObject` Creates typed object with single type for each object.
+ *
+ * Usage:
+ * ```ts
+ *  const mySizes = {
+ *    big: '22px',
+ *    medium: 14,
+ *    small: '1rem',
+ *  };
+ *
+ *  const SizeShape: RecordObject<keyof typeof mySizes, string | number> = {
+ *    big: 44,
+ *    medium: '2rem',
+ *    small: '10vw',
+ *  }; // Pass
+ *
+ *  const SizeShape1: RecordObject<keyof typeof mySizes, string | number> = {
+ *    big: /10/,
+ *    medium: '2rem',
+ *    small: '10vw',
+ *  }; // Fails
+ * ```
+ */
+declare type RecordObject<K extends keyof any, T> = {
+  [P in K]: T;
+};

@@ -32,12 +32,13 @@ import 'typescript-utility-types';
   - [Installation](#installation)
   - [Typescript compatibility](#typescript-compatibility)
   - [Table of content](#table-of-content)
-    - [`Dictionary`](#dictionary)
-    - [`XOR<A, B>`](#xora-b)
-    - [`OneOf<A, B>` (same as XOR)](#oneofa-b-same-as-xor)
-    - [`Extend<A, B>`](#extenda-b)
-    - [`Subtract<A, B>`](#subtracta-b)
-    - [`Nullable<A>`](#nullablea)
+    - [Dictionary](#dictionary)
+    - [XOR&lt;A, B&gt;](#xorlta-bgt)
+    - [OneOf&lt;A, B&gt; (same as XOR)](#oneoflta-bgt-same-as-xor)
+    - [Extend&lt;A, B&gt;](#extendlta-bgt)
+    - [Subtract&lt;A, B&gt;](#subtractlta-bgt)
+    - [Nullable&lt;A&gt;](#nullableltagt)
+    - [RecordObject&lt;A, B&gt;](#recordobjectlta-bgt)
 
 ### `Dictionary`
 
@@ -116,4 +117,19 @@ Usage:
 ```ts
   let test: Nullable<string> = null;
   test = 'Will work';
+```
+
+### `RecordObject<A, B>`
+
+`RecordObject` creates type for object which each key has same type.
+
+Usage:
+
+```ts
+  const mySizes = {
+    big: '22px',
+    medium: 14,
+    small: '1rem',
+  };
+  type MySizes = RecordObject<keyof typeof mySizes, string | number>
 ```
