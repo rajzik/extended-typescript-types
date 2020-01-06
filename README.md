@@ -39,6 +39,7 @@ import 'typescript-utility-types';
     - [Subtract&lt;A, B&gt;](#subtractlta-bgt)
     - [Nullable&lt;A&gt;](#nullableltagt)
     - [RecordObject&lt;A, B&gt;](#recordobjectlta-bgt)
+    - [ValuesOf&lt;A&gt;](#valuesofltagt)
 
 ### `Dictionary`
 
@@ -132,4 +133,15 @@ Usage:
     small: '1rem',
   };
   type MySizes = RecordObject<keyof typeof mySizes, string | number>
+```
+
+### `ValuesOf<A>`
+
+`ValuesOf` Returns values of constant array as type.
+
+Usage:
+
+ ```ts
+  const myArray = ['test', 'of', 'value', 'of'] as const;
+  type AllowedValue = ValueOf<typeof myArray>; // 'test' | 'of' | 'values';
 ```

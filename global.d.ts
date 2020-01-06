@@ -142,3 +142,14 @@ declare type Mandatory<T> = T & RequiredInternal<T, keyof T>;
 declare type RecordObject<K extends keyof any, T> = {
   [P in K]: T;
 };
+
+/**
+ * `ValuesOf` Returns values of constant array as type.
+ *
+ * Usage:
+ * ```ts
+ *  const myArray = ['test', 'of', 'value', 'of'] as const;
+ *  type AllowedValue = ValueOf<typeof myArray>; // 'test' | 'of' | 'values';
+ * ```
+ */
+declare type ValuesOf<T extends unknown[]> = T[number];
